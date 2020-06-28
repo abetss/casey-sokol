@@ -1,0 +1,65 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@material-ui/core": "^4.9.12",
+    "@material-ui/styles": "^4.9.10",
+    "@mdx-js/mdx": "^1.6.0",
+    "@mdx-js/react": "^1.6.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.20.25",
+    "gatsby-image": "^2.3.4",
+    "gatsby-plugin-manifest": "^2.3.5",
+    "gatsby-plugin-material-ui": "^2.1.8",
+    "gatsby-plugin-mdx": "^1.2.4",
+    "gatsby-plugin-offline": "^3.1.4",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
+    "gatsby-plugin-react-helmet": "^3.2.4",
+    "gatsby-plugin-sharp": "^2.5.6",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-source-filesystem": "^2.2.4",
+    "gatsby-source-strapi": "^0.0.12",
+    "gatsby-transformer-sharp": "^2.4.6",
+    "material-ui-popup-state": "^1.5.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "react-icons": "^3.10.0",
+    "react-markdown": "^4.3.1",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-gatsby-standard": "^2.2.0",
+    "prettier": "2.0.4"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "yarn gatsby develop",
+    "staging": "GATSBY_ACTIVE_ENV=staging NODE_TLS_REJECT_UNAUTHORIZED='0' GATSBY_ACTIVE_ENV=staging yarn develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-gatsby-standard"
+  }
+}

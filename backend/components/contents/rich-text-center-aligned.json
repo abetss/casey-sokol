@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contents_rich_text_center_aligneds",
+  "info": {
+    "name": "Rich_Text_Center_Aligned",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "Rich_Text_Center_Aligned": {
+      "type": "richtext"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}
