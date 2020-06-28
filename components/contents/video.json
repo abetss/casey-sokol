@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_contents_videos",
+  "info": {
+    "name": "Video",
+    "icon": "video"
+  },
+  "options": {},
+  "attributes": {
+    "Video_URL": {
+      "type": "string"
+    },
+    "Provider": {
+      "type": "enumeration",
+      "enum": [
+        "Youtube",
+        "Vimeo"
+      ]
+    }
+  }
+}
