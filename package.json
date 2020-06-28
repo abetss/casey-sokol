@@ -4,31 +4,30 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
+    "develop": "NODE_TLS_REJECT_UNAUTHORIZED='0' yarn strapi develop",
+    "start": "NODE_TLS_REJECT_UNAUTHORIZED='0' yarn strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
+    "strapi": "3.0.5",
+    "strapi-admin": "3.0.5",
+    "strapi-utils": "3.0.5",
+    "strapi-plugin-content-type-builder": "3.0.5",
+    "strapi-plugin-content-manager": "3.0.5",
+    "strapi-plugin-users-permissions": "3.0.5",
+    "strapi-plugin-email": "3.0.5",
+    "strapi-plugin-upload": "3.0.5",
+    "strapi-connector-bookshelf": "3.0.5",
     "knex": "<0.20.0",
-    "pg": "latest",
-    "strapi": "3.0.0-beta.20",
-    "strapi-admin": "3.0.0-beta.20",
-    "strapi-connector-bookshelf": "3.0.0-beta.20",
-    "strapi-plugin-content-manager": "3.0.0-beta.20",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.20",
-    "strapi-plugin-email": "3.0.0-beta.20",
-    "strapi-plugin-upload": "3.0.0-beta.20",
-    "strapi-plugin-users-permissions": "3.0.0-beta.20",
-    "strapi-provider-upload-cloudinary": "^3.0.5",
-    "strapi-utils": "3.0.0-beta.20"
+    "pg": "latest"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "1d4ffac4-1fa0-4609-b16a-e4ca7edd3825"
+    "uuid": "16ebeb14-3e70-4654-8f0e-cd32577c267e"
   },
   "engines": {
     "node": ">=10.0.0",
