@@ -23,14 +23,14 @@
         "files.course-material"
       ]
     },
-    "exercises": {
+    "exercises_related_to_this": {
       "collection": "exercises",
       "via": "related_exercises",
       "dominant": true
     },
     "related_exercises": {
       "collection": "exercises",
-      "via": "exercises"
+      "via": "exercises_related_to_this"
     },
     "Contents": {
       "type": "dynamiczone",
