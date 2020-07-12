@@ -40,10 +40,6 @@
         "contents.rich-text",
         "contents.video"
       ]
-    },
-    "Slug": {
-      "type": "uid",
-      "targetField": "Title"
     }
   }
 }
