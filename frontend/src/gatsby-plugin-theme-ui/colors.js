@@ -1,16 +1,16 @@
 
 const defaultColors = {
   header: {
-    primary: "#006ab6",
+    primary: "#8A0000",
     secondary: "#ffbd43",
     background: "#fff",
   },
   text: "#000",
   "text-muted": "#807f7f",
   background: "#fff",
-  primary: "#006ab6",
-  "primary-darker": "#005c9d",
-  "primary-light": "#9cd6ff",
+  primary: "#8A0000",
+  "primary-darker": "#8A0000",
+  "primary-light": "#8A0000",
   secondary: "#ffcf77",
   accent: "#ffbd43",
   muted: "#f6f6f6",

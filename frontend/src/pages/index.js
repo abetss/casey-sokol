@@ -27,15 +27,7 @@ const IndexPage = () => {
             py: [4, 4, 5],
           }}
         >
-          <Text
-            sx={{
-              fontSize: [5, 5, 6],
-              fontFamily: "quote",
-            }}
-            as="blockquote"
-          >
-            "Some Text"
-          </Text>
+          <H1>Casey Sokol</H1>
         </Container>
       </div>
     </Layout>

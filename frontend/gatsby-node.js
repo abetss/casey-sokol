@@ -26,83 +26,39 @@ const createMdxNode = (contentType, contentProperty, { node, actions, createNode
   }
 }
 
-module.exports.onCreateNode = async onCreateNodeProps => {
-  // createMdxNode("StrapiHomePage", "content", onCreateNodeProps)
-  // createMdxNode("StrapiHomePage", "Links", onCreateNodeProps)
-  // createMdxNode("StrapiArticle", "Footer", onCreateNodeProps)
-  // createMdxNode("StrapiArticle", "Content", onCreateNodeProps)
-  // createMdxNode("StrapiArticle", "Summary", onCreateNodeProps)
-  // createMdxNode("StrapiAboutGurdjieff", "Content", onCreateNodeProps)
-}
+// module.exports.onCreateNode = async onCreateNodeProps => {
+//   createMdxNode("StrapiArticle", "Footer", onCreateNodeProps)
+//   createMdxNode("StrapiArticle", "Content", onCreateNodeProps)
+//   createMdxNode("StrapiArticle", "Summary", onCreateNodeProps)
+// }
 
-const createArticlePages = async (actions, graphql) => {
-  const { createPage } = actions
+// const createArticlePages = async (actions, graphql) => {
+//   const { createPage } = actions
 
-  const result = await graphql(`
-    {
-      allStrapiArticle {
-        edges {
-          node {
-            strapiId
-            Slug
-          }
-        }
-      }
-    }
-  `)
-  result.data.allStrapiArticle.edges.forEach(({ node }) => {
-    createPage({
-      path: `/articles/${node.Slug}`,
-      component: path.resolve(`src/templates/article.js`),
-      context: {
-        id: node.strapiId,
-      },
-    })
-  })
-}
+//   const result = await graphql(`
+//     {
+//       allStrapiArticle {
+//         edges {
+//           node {
+//             strapiId
+//             Slug
+//           }
+//         }
+//       }
+//     }
+//   `)
+//   result.data.allStrapiArticle.edges.forEach(({ node }) => {
+//     createPage({
+//       path: `/articles/${node.Slug}`,
+//       component: path.resolve(`src/templates/article.js`),
+//       context: {
+//         id: node.strapiId,
+//       },
+//     })
+//   })
+// }
 
-const createAboutGurdjieffPages = async (actions, graphql) => {
-  const { createPage } = actions
 
-  const result = await graphql(`
-    {
-      gurdjieffPages: allStrapiAboutGurdjieff(filter: { Navigation_Menu: { eq: "About_Gurdjieff" } }) {
-        nodes {
-          strapiId
-          Slug
-        }
-      }
-      aboutUsPages: allStrapiAboutGurdjieff(filter: { Navigation_Menu: { eq: "About_Us" } }) {
-        nodes {
-          strapiId
-          Slug
-        }
-      }
-    }
-  `)
-
-  result.data.gurdjieffPages.nodes.forEach(node => {
-    createPage({
-      path: `/gurdjieff/${node.Slug}`,
-      component: path.resolve(`src/templates/gurdjieff-page.js`),
-      context: {
-        id: node.strapiId,
-      },
-    })
-  })
-
-  result.data.aboutUsPages.nodes.forEach(node => {
-    createPage({
-      path: `/about-us/${node.Slug}`,
-      component: path.resolve(`src/templates/gurdjieff-page.js`),
-      context: {
-        id: node.strapiId,
-      },
-    })
-  })
-}
-
-exports.createPages = async ({ actions, graphql }) => {
-  // createArticlePages(actions, graphql)
-  // createAboutGurdjieffPages(actions, graphql)
-}
+// exports.createPages = async ({ actions, graphql }) => {
+//   createArticlePages(actions, graphql)
+// }

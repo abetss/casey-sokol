@@ -13,7 +13,7 @@ module.exports = {
     description: `Casey Sokol Teaching materials (to add more details)`,
     keywords: [`casey sokol`, `piano`, 'improvisation'],
     author: `Abtin Ghods`,
-    siteUrl: `https://changethis.later`, //Change to you site address, required for sitemap.xml and robots.txt file among other things
+    siteUrl: `https://changethis.later`,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -28,7 +28,7 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL,
-        // contentTypes: ["article", "about-gurdjieff"],
+        contentTypes: ["exercises", "tags"],
         // singleTypes: [`home-page`, "contact-us"],
         queryLimit: 1000,
       },

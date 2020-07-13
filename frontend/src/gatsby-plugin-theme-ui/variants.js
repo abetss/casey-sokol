@@ -10,7 +10,6 @@ import gSite from '../images/repBgLeft.gif';
 export const variants = {
   links: {
     nav: {
-      pr: 4,
       py: 1,
       textTransform: "uppercase",
       fontWeight: ["bold", 500],

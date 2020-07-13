@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
           <main>{children}</main>
         </div>
         <footer sx={{ mt: 5, pb: 4, variant: "container.margin", display: "flex", justifyContent: "center", color: "text-muted" }}>
-          <span>© {new Date().getFullYear()}, Gurdjieff Traditional Studies</span>
+          <span>© {new Date().getFullYear()}, Casey Sokol</span>
         </footer>
       </div>
     </Fragment>

@@ -24,30 +24,13 @@ const ThemeDropDown = ({ colorModeNames, selectedColorMode, handleChange }) => {
 }
 
 const Header = ({ title, subTitle }) => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      gurdjieffPages: allStrapiAboutGurdjieff(filter: { Navigation_Menu: { eq: "About_Gurdjieff" } }) {
-        nodes {
-          Title
-          Slug
-        }
-      }
-      aboutUsPages: allStrapiAboutGurdjieff(filter: { Navigation_Menu: { eq: "About_Us" } }) {
-        nodes {
-          Title
-          Slug
-        }
-      }
-    }
-  `)
-
   const [colorMode, setColorMode] = useColorMode()
   const colorModes = [
     { name: "Light", value: "default" },
     { name: "Dark", value: "dark" },
     { name: "Warm", value: "warm" },
-    // { name: "Light - Darker Header", value: "lite-darker-header" },
-    // { name: "Yellow", value: "light-paper" },
+    { name: "Light - Darker Header", value: "lite-darker-header" },
+    { name: "Yellow", value: "light-paper" },
   ]
 
   const [texture, setTexture, headerTexture] = useSelectTexture()
@@ -62,15 +45,12 @@ const Header = ({ title, subTitle }) => {
 
   const colorModeTextureAgnostic = !colorMode.includes("texture")
     ? colorMode
-    : colorMode.split("-").slice(0, -1).join("-");
+    : colorMode.split("-").slice(0, -1).join("-")
 
   const handleColorChange = e => {
     const newColorMode = texture === "crisp" ? e.target.value : `${e.target.value}-texture`
     setColorMode(newColorMode)
   }
-
-  const gurdjieffMenus = data.gurdjieffPages.nodes
-  const aboutUsMenus = data.aboutUsPages.nodes
 
   return (
     <header
@@ -104,7 +84,7 @@ const Header = ({ title, subTitle }) => {
                 fontFamily: "logo",
                 mt: [1, 0, 0],
                 ml: [0, 1, 1],
-                color: "muted-darker"
+                color: "muted-darker",
                 // "::before": { content: ['""', '" - "', '" - "'] },
               }}
             >
@@ -127,29 +107,37 @@ const Header = ({ title, subTitle }) => {
           </Flex>
         </Flex>
 
-        <Flex as="nav" sx={{ mt: [2, 2, 2], justifyContent: "space-between", flexDirection: "row", flexWrap: "wrap" }}>
+        <Flex
+          sx={{
+            mt: [2, 2, 2],
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            flexDirection: ["column", "row", "row"],
+            width: "100%",
+          }}
+        >
+          <Link sx={{ variant: "links.nav" }} to="/">
+            Home
+          </Link>
           <Flex sx={{ flexDirection: ["column", "row", "row"] }}>
-            <Link sx={{ variant: "links.nav" }} to="/">
-              Home
+            <Link sx={{ variant: "links.nav", pr: 4 }} to="/bio">
+              Bio
             </Link>
-            {aboutUsMenus.length > 0 && (
-              <DropDownNav title="About Us" baseUrl="about-us" menuId="about-menu" subMenus={aboutUsMenus} />
-            )}
-            {gurdjieffMenus.length > 0 && (
-              <DropDownNav title="Gurdjieff" baseUrl="gurdjieff" menuId="gurdjieff-menu" subMenus={gurdjieffMenus} />
-            )}
-
-            <Link sx={{ variant: "links.nav" }} to="/articles">
-              Articles
+            <Link sx={{ variant: "links.nav", pr: 4 }} to="/about">
+              About
             </Link>
-            <Link sx={{ variant: "links.nav" }} to="/contact-us">
-              Contact us
+            <Link sx={{ variant: "links.nav", pr: 4 }} to="/philosophy">
+              Philosophy
             </Link>
-          </Flex>
-          <Flex>
-            <NavLink target="_blank" sx={{ fontStyle: "italic" }} href="https://traditionalstudiespress.com/">
-              Traditional Studies Press
-            </NavLink>
+            <Link sx={{ variant: "links.nav", pr: 4 }} to="/exercises">
+              The Exercises
+            </Link>
+            <Link sx={{ variant: "links.nav", pr: 4 }} to="/musics">
+              Music (Scores and Audio)
+            </Link>
+            <Link sx={{ variant: "links.nav" }} to="/notes">
+              Notes
+            </Link>
           </Flex>
         </Flex>
       </Container>
