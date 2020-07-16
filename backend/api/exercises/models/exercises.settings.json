@@ -44,6 +44,9 @@
     "Slug": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "Summary": {
+      "type": "text"
     }
   }
 }
