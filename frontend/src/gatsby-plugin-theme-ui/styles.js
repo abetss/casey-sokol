@@ -94,7 +94,7 @@ export const styles = {
     lineHeight: "body",
   },
   a: {
-    color: "primary",
+    color: "link",
   },
   pre: {
     fontFamily: "monospace",
