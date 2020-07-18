@@ -43,7 +43,11 @@ const RelatedExercises = ({ exercises, title }) => {
       <Flex sx={{ flexDirection: "column" }}>
         {exercises.map(exercise => {
           return (
-            <Link to={`/exercises/${exercise.Slug}`} title={exercise.Summary} key={`related-exercise-link-${exercise.Slug}`}>
+            <Link
+              to={`/exercises/${exercise.Slug}`}
+              title={exercise.Summary}
+              key={`related-exercise-link-${exercise.Slug}`}
+            >
               {exercise.Title}
             </Link>
           )
@@ -51,6 +55,15 @@ const RelatedExercises = ({ exercises, title }) => {
       </Flex>
     </React.Fragment>
   )
+}
+
+const RichTextContent = ({ contents }) => {
+  return contents.map((content, index) => (
+    <Box sx={{ mt: 3 }} key={`exercise-content-${index}`}>
+      {/* <H2>{content.Title}</H2> */}
+      <p>{content.Rich_Text}</p>
+    </Box>
+  ))
 }
 
 const ExerciseTemplate = ({ data: { exercise } }) => {
@@ -87,6 +100,7 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
           </Flex>
         )}
 
+        <RichTextContent contents={exercise.Contents} />
       </Container>
     </PageLayout>
   )
