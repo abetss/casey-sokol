@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Layout from "../components/layout"
+import Layout from "../components/page-layout"
 import SEO from "../components/seo"
 import { H1 } from "../components/typography/h1"
 import { useSelectTexture } from "../utils/hooks/useSelectTexture"

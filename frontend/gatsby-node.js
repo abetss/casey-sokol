@@ -26,6 +26,44 @@ const createMdxNode = (contentType, contentProperty, { node, actions, createNode
   }
 }
 
+const createExercisePages = async (actions, graphql) => {
+  const { createPage } = actions
+
+  // const result2 = await graphql(`
+  //   {
+  //     allStrapiArticle {
+  //       edges {
+  //         node {
+  //           strapiId
+  //           Slug
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  const result = await graphql(`
+    {
+      allStrapiExercises {
+        nodes {
+          Slug
+          strapiId
+        }
+      }
+    }
+  `)
+
+  result.data.allStrapiExercises.nodes.forEach((exercise) => {
+
+    createPage({
+      path: `/exercises/${exercise.Slug}`,
+      component: path.resolve(`src/templates/exercise.js`),
+      context: {
+        strapiId: exercise.strapiId,
+      },
+    })
+  })
+}
+
 // module.exports.onCreateNode = async onCreateNodeProps => {
 //   createMdxNode("StrapiArticle", "Footer", onCreateNodeProps)
 //   createMdxNode("StrapiArticle", "Content", onCreateNodeProps)
@@ -58,7 +96,6 @@ const createMdxNode = (contentType, contentProperty, { node, actions, createNode
 //   })
 // }
 
-
-// exports.createPages = async ({ actions, graphql }) => {
-//   createArticlePages(actions, graphql)
-// }
+exports.createPages = async ({ actions, graphql }) => {
+  createExercisePages(actions, graphql)
+}

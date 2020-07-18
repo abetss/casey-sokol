@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, Grid, Container, Flex, Text, Link } from "theme-ui"
 import { graphql, navigate } from "gatsby"
-import Layout from "../components/layout"
+import PageLayout from "../components/page-layout"
 import SEO from "../components/seo"
-import { H1, H2 } from "../components"
+import { H1, H2, Tag } from "../components"
 import { useSelectTexture } from "../utils/hooks/useSelectTexture"
 
 const ExercisesPage = ({
@@ -16,7 +16,7 @@ const ExercisesPage = ({
   }
   const [textureType] = useSelectTexture()
   return (
-    <Layout>
+    <PageLayout>
       <SEO title="Casey Sokol - Exercises" />
       <Container>
         <H1>Exercises</H1>
@@ -47,22 +47,14 @@ const ExercisesPage = ({
                 </H2>
                 {exercise.tags.length > 0 && (
                   <Flex mt={1}>
-                    {exercise.tags.map(({ Tag }) => (
-                      <Link
-                        as="span"
+                    {exercise.tags.map(tag => (
+                      <Tag
                         sx={{
                           mr: [2, 3],
-                          color: "text-muted",
-                          cursor: "pointer",
-                          "&:hover": {
-                            color: "link",
-                            transition: "background-color 100ms linear",
-                          },
                         }}
-                        key={`exercise-tag-${Tag}`}
-                      >
-                        #{Tag}
-                      </Link>
+                        key={`exercise-tag-${tag.Tag}`}
+                        title={tag.Tag}
+                      />
                     ))}
                   </Flex>
                 )}
@@ -74,7 +66,7 @@ const ExercisesPage = ({
           ))}
         </Grid>
       </Container>
-    </Layout>
+    </PageLayout>
   )
 }
 

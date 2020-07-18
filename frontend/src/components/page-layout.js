@@ -7,7 +7,7 @@ import { Global, css } from "@emotion/core"
 import Header from "./header"
 import { useSelectTexture } from "../utils/hooks/useSelectTexture"
 
-const Layout = ({ children }) => {
+const PageLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -44,8 +44,8 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
+PageLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default PageLayout
