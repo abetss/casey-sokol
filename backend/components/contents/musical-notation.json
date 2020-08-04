@@ -7,7 +7,7 @@
   "options": {},
   "attributes": {
     "Notation_Image": {
-      "collection": "file",
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -30,6 +30,10 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "ComponentTypeP": {
+      "type": "string",
+      "default": "MusicalNotation"
     }
   }
 }

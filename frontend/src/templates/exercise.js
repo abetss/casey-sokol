@@ -7,6 +7,9 @@ import SEO from "../components/seo"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { H1, H2, Tag, H3, HighlightContainer, Link } from "../components"
+import ReactMarkdown from 'react-markdown'
+import { isEmpty } from 'ramda'
+import { DynamicZones } from "../components/dynamic-zones"
 
 const CourseMaterial = ({ materials }) => {
   const groups = {}
@@ -57,14 +60,30 @@ const RelatedExercises = ({ exercises, title }) => {
   )
 }
 
-const RichTextContent = ({ contents }) => {
-  return contents.map((content, index) => (
-    <Box sx={{ mt: 3 }} key={`exercise-content-${index}`}>
-      {/* <H2>{content.Title}</H2> */}
-      <p>{content.Rich_Text}</p>
-    </Box>
-  ))
-}
+// const RichTextContent = ({ contents }) => {
+//   return contents.map((content, index) => {
+//     console.log("^^^ contents.ComponentType", content.ComponentType)
+//     console.log("^^^ content", content)
+
+//     if (content.ComponentType === "RichText" || content.ComponentType === "RichTextCentered" || !isEmpty(content.Rich_Text)) {
+//       // const mdx = crypto
+//       //   .createHash("md5")
+//       //   .update(content["Rich_Text"] || " ")
+//       //   .digest("hex")
+
+//       // console.log("^^^ mdx", mdx)
+
+//       return <ReactMarkdown source={content.Rich_Text} />
+//     }
+
+//     return (
+//       <Box sx={{ mt: 3 }} key={`exercise-content-${index}`}>
+//         <H2>{content.Title}</H2>
+//         <p>{content.Rich_Text}</p>
+//       </Box>
+//     )
+//   })
+// }
 
 const ExerciseTemplate = ({ data: { exercise } }) => {
   return (
@@ -100,7 +119,7 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
           </Flex>
         )}
 
-        <RichTextContent contents={exercise.Contents} />
+        <DynamicZones contents={exercise.Contents} />
       </Container>
     </PageLayout>
   )
@@ -121,6 +140,7 @@ export const query = graphql`
         Summary
       }
       Contents {
+        ComponentType
         Rich_Text
         Title
         Video_URL
@@ -130,6 +150,15 @@ export const query = graphql`
           mime
           ext
           hash
+          url
+        }
+        Notation_Image {
+          id
+          childImageSharp {
+            fluid(maxWidth: 890, quality: 100) {
+                  ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
       Course_Downloadable_Materials {

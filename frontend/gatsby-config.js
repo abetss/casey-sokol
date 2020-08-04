@@ -29,7 +29,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL,
         contentTypes: ["exercises", "tags"],
-        // singleTypes: [`home-page`, "contact-us"],
+        singleTypes: [`home-page`],
         queryLimit: 1000,
       },
     },

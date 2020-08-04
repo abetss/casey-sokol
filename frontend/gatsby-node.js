@@ -3,13 +3,18 @@ const path = require(`path`)
 
 const createMdxNode = (contentType, contentProperty, { node, actions, createNodeId }) => {
   if (node.internal.type === contentType) {
+    // console.log('^^^ node', node);
     const newContentType = `${contentType}${contentProperty}`
+
+    const content = node[contentProperty][0] || " "
+    console.log('^^^ content', content);
+
     const newNode = {
       id: createNodeId(`${newContentType}-${node.id}`),
       parent: node.id,
       children: [],
       internal: {
-        content: node[contentProperty] || " ",
+        content,
         type: newContentType,
         mediaType: "text/markdown",
         contentDigest: crypto
@@ -64,11 +69,11 @@ const createExercisePages = async (actions, graphql) => {
   })
 }
 
-// module.exports.onCreateNode = async onCreateNodeProps => {
-//   createMdxNode("StrapiArticle", "Footer", onCreateNodeProps)
-//   createMdxNode("StrapiArticle", "Content", onCreateNodeProps)
-//   createMdxNode("StrapiArticle", "Summary", onCreateNodeProps)
-// }
+module.exports.onCreateNode = async onCreateNodeProps => {
+  // createMdxNode("StrapiArticle", "Footer", onCreateNodeProps)
+  // createMdxNode("StrapiExercises", "Contents", onCreateNodeProps)
+  // createMdxNode("StrapiArticle", "Summary", onCreateNodeProps)
+}
 
 // const createArticlePages = async (actions, graphql) => {
 //   const { createPage } = actions

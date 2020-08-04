@@ -11,6 +11,10 @@
     },
     "Title": {
       "type": "string"
+    },
+    "ComponentTypeP": {
+      "type": "string",
+      "default": "RichTextCentered"
     }
   }
 }
