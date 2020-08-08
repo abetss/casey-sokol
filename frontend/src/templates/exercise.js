@@ -143,7 +143,7 @@ export const query = graphql`
         ComponentType
         Rich_Text
         Title
-        Video_URL
+        Video_ID
         Provider
         Download_Link_Title
         Download_File {
