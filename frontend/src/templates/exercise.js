@@ -23,9 +23,9 @@ const CourseMaterial = ({ materials }) => {
 
   // TODO: add icon base on file type
 
-  return Object.entries(groups).map(([groupName, groupMaterials]) => {
+  return Object.entries(groups).map(([groupName, groupMaterials], index) => {
     return (
-      <Box key={`material-${groupName}`}>
+      <Box key={`material-${groupName}`} mt={index === 0 ? 0 : 4}>
         <H3>{groupName}</H3>
         <Flex sx={{ flexDirection: "column", mt: 2 }}>
           {groupMaterials.map((groupMaterial, index) => (
@@ -59,31 +59,6 @@ const RelatedExercises = ({ exercises, title }) => {
     </React.Fragment>
   )
 }
-
-// const RichTextContent = ({ contents }) => {
-//   return contents.map((content, index) => {
-//     console.log("^^^ contents.ComponentType", content.ComponentType)
-//     console.log("^^^ content", content)
-
-//     if (content.ComponentType === "RichText" || content.ComponentType === "RichTextCentered" || !isEmpty(content.Rich_Text)) {
-//       // const mdx = crypto
-//       //   .createHash("md5")
-//       //   .update(content["Rich_Text"] || " ")
-//       //   .digest("hex")
-
-//       // console.log("^^^ mdx", mdx)
-
-//       return <ReactMarkdown source={content.Rich_Text} />
-//     }
-
-//     return (
-//       <Box sx={{ mt: 3 }} key={`exercise-content-${index}`}>
-//         <H2>{content.Title}</H2>
-//         <p>{content.Rich_Text}</p>
-//       </Box>
-//     )
-//   })
-// }
 
 const ExerciseTemplate = ({ data: { exercise } }) => {
   return (
