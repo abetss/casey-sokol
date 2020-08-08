@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "home_pages",
   "info": {
-    "name": "Home_Page"
+    "name": "Home"
   },
   "options": {
     "increments": true,

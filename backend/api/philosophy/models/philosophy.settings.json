@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "philosophies",
+  "info": {
+    "name": "Philosophy"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}
