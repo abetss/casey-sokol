@@ -3,6 +3,7 @@ import { jsx } from "theme-ui"
 
 import Markdown from "markdown-to-jsx"
 import { H1, H2, H3, H4, H5, H6 } from "./typography/h1"
+import { BetterLink } from "./typography"
 
 export const RichText = ({ children }) => {
   return (
@@ -27,6 +28,9 @@ export const RichText = ({ children }) => {
           h6: {
             component: H6,
           },
+          a: {
+              component: BetterLink
+          }
         //   p: {
         //       component: Text,
         //       props: {
