@@ -34,18 +34,6 @@ const createMdxNode = (contentType, contentProperty, { node, actions, createNode
 const createExercisePages = async (actions, graphql) => {
   const { createPage } = actions
 
-  // const result2 = await graphql(`
-  //   {
-  //     allStrapiArticle {
-  //       edges {
-  //         node {
-  //           strapiId
-  //           Slug
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
   const result = await graphql(`
     {
       allStrapiExercises {

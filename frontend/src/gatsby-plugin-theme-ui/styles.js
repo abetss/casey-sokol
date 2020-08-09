@@ -55,26 +55,40 @@ export const styles = {
     ...heading,
     fontSize: [5, 6],
     lineHeight: '1.425',
+    color: 'primary-darker',
+    mt: 4
   },
   h2: {
     ...heading,
     fontSize: [4, 5],
+    color: 'primary-darker',
+    mt: 4,
+    mb: 2
   },
   h3: {
     ...heading,
     fontSize: 3,
+    color: 'primary-darker',
+    mt: 3,
+    mb: 2
   },
   h4: {
     ...heading,
     fontSize: 2,
+    color: 'primary-darker',
+    mt: 3
   },
   h5: {
     ...heading,
     fontSize: 1,
+    color: 'primary-darker',
+    mt: 3
   },
   h6: {
     ...heading,
     fontSize: 0,
+    color: 'primary-darker',
+    mt: 3
   },
   hr: {
     color: "primary",
@@ -82,10 +96,12 @@ export const styles = {
     borderStyle: 'dashed'
   },
   p: {
-    color: "text",
+    color: "primary",
     fontFamily: "body",
     fontWeight: "body",
     lineHeight: "body",
+    mt:5,
+    mb:5,
   },
   span: {
     color: "text",

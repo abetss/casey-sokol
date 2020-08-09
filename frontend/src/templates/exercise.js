@@ -6,7 +6,7 @@ import PageLayout from "../components/page-layout"
 import SEO from "../components/seo"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { H1, H2, Tag, H3, HighlightContainer, Link } from "../components"
+import { H1, H2, Tag, H3, HighlightContainer, Link, PageTitle } from "../components"
 import ReactMarkdown from 'react-markdown'
 import { isEmpty } from 'ramda'
 import { DynamicZones } from "../components/dynamic-zones"
@@ -65,7 +65,7 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
     <PageLayout>
       <SEO title={exercise.Title} />
       <Container>
-        <H1>{exercise.Title}</H1>
+        <PageTitle>{exercise.Title}</PageTitle>
         {exercise.tags.length > 0 && (
           <Flex mt={1}>
             {exercise.tags.map(tag => (
