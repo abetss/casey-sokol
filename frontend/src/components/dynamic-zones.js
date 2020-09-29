@@ -6,6 +6,7 @@ import { H2} from "../components"
 import { isNil } from "ramda"
 import { VideoPlayer } from "./video-player"
 import { RichText } from "./rich-text"
+import { Link } from "./typography"
 
 
 export const DynamicZones = ({ contents, keyTitle = "contents" }) => {
@@ -24,11 +25,19 @@ export const DynamicZones = ({ contents, keyTitle = "contents" }) => {
       )
     }
 
+
     if (content.ComponentType === "MusicalNotation" || !isNil(content.Notation_Image)) {
+      console.log('^^^ content', content);
       return (
         <Flex sx={{ mt: 3, justifyContent: "center", flexDirection: "column" }} key={key}>
           <Box sx={{ display: "inline-block" }}>
-            <a href="/uploads/Cantation_I_35e095ef68.pdf">{content.Download_Link_Title}</a>
+            {
+              content.Download_File.map((downloadFile, index) => (
+                  <Link to={downloadFile.url} download={true} key={`download-${content.Download_Link_Title}-${index}`}>
+                  {content.Download_Link_Title}
+                </Link>
+              ))
+            }
           </Box>
           <Img
             sx={{ width: "100%", border: 1, borderColor: "gray", mt: 2 }}
