@@ -13,7 +13,7 @@ import { DynamicZones } from "../components/dynamic-zones"
 
 const CourseMaterial = ({ materials }) => {
   const groups = {}
-  materials.forEach(material => {
+  materials.filter(material=> material.File && material.File.publicURL).forEach(material => {
     if (Array.isArray(groups[material.course_material_group.Group_Title])) {
       groups[material.course_material_group.Group_Title].push(material)
     } else {
@@ -29,7 +29,7 @@ const CourseMaterial = ({ materials }) => {
         <H3>{groupName}</H3>
         <Flex sx={{ flexDirection: "column", mt: 2 }}>
           {groupMaterials.map((groupMaterial, index) => (
-            <Link to={groupMaterial.File ? groupMaterial.File.publicURL : null} key={`material-${groupName}-${index}`}>
+            <Link to={groupMaterial.File.publicURL} download={true} key={`material-${groupName}-${index}`}>
               {groupMaterial.Display_Name}
             </Link>
           ))}
@@ -61,6 +61,7 @@ const RelatedExercises = ({ exercises, title }) => {
 }
 
 const ExerciseTemplate = ({ data: { exercise } }) => {
+  console.log('^^^ boo', exercise.Course_Downloadable_Materials);
   return (
     <PageLayout>
       <SEO title={exercise.Title} />
@@ -79,7 +80,7 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
             ))}
           </Flex>
         )}
-        {exercise.related_exercises.length > 0 && exercise.Course_Downloadable_Materials.length > 0 && (
+        {(exercise.related_exercises.length > 0 || exercise.Course_Downloadable_Materials.length > 0) && (
           <Flex mt={3}>
             {exercise.Course_Downloadable_Materials.length > 0 && (
               <HighlightContainer flex={2} mr={3}>
