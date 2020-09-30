@@ -26,7 +26,10 @@ export const DynamicZones = ({ contents, keyTitle = "contents" }) => {
     }
 
 
-    if (content.ComponentType === "MusicalNotation" || !isNil(content.Notation_Image)) {
+    if (content.ComponentType === "MusicalNotation"
+      && !isNil(content.Notation_Image)
+      && !isNil(content.Notation_Image.childImageSharp)
+      ) {
       console.log('^^^ content', content);
       return (
         <Flex sx={{ mt: 3, justifyContent: "center", flexDirection: "column" }} key={key}>
