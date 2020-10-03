@@ -10,7 +10,8 @@
   },
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "tags": {
       "collection": "tags",
@@ -46,7 +47,8 @@
       "targetField": "Title"
     },
     "Summary": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

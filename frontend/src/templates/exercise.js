@@ -4,18 +4,14 @@ import { jsx, Divider, Container, Flex, Box } from "theme-ui"
 import { graphql } from "gatsby"
 import PageLayout from "../components/page-layout"
 import SEO from "../components/seo"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { H1, H2, Tag, H3, HighlightContainer, Link, PageTitle } from "../components"
-import ReactMarkdown from 'react-markdown'
-import { isEmpty } from 'ramda'
+import { Tag, H3, HighlightContainer, Link, PageTitle } from "../components"
 import { DynamicZones } from "../components/dynamic-zones"
 
 const CourseMaterial = ({ materials }) => {
   const groups = {}
   materials.filter(material=> material.File && material.File.publicURL).forEach(material => {
     if (Array.isArray(groups[material.course_material_group.Group_Title])) {
-      groups[material.course_material_group.Group_Title].push(material)
+      groups[material.course_material_group.Group_Title || "Download Materials"].push(material)
     } else {
       groups[material.course_material_group.Group_Title] = [material]
     }

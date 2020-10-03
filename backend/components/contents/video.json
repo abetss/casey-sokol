@@ -7,14 +7,16 @@
   "options": {},
   "attributes": {
     "Video_ID": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Provider": {
       "type": "enumeration",
       "enum": [
         "Youtube",
         "Vimeo"
-      ]
+      ],
+      "required": true
     },
     "ComponentTypeP": {
       "type": "string",

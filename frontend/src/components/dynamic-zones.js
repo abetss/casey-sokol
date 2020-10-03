@@ -30,7 +30,6 @@ export const DynamicZones = ({ contents, keyTitle = "contents" }) => {
       && !isNil(content.Notation_Image)
       && !isNil(content.Notation_Image.childImageSharp)
       ) {
-      console.log('^^^ content', content);
       return (
         <Flex sx={{ mt: 3, justifyContent: "center", flexDirection: "column" }} key={key}>
           <Box sx={{ display: "inline-block" }}>

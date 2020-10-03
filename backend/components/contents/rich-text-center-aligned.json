@@ -7,7 +7,8 @@
   "options": {},
   "attributes": {
     "Rich_Text_Center_Aligned": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "Title": {
       "type": "string"
