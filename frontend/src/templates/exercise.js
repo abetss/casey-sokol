@@ -10,10 +10,12 @@ import { DynamicZones } from "../components/dynamic-zones"
 const CourseMaterial = ({ materials }) => {
   const groups = {}
   materials.filter(material=> material.File && material.File.publicURL).forEach(material => {
-    if (Array.isArray(groups[material.course_material_group.Group_Title])) {
-      groups[material.course_material_group.Group_Title || "Download Materials"].push(material)
+    const groupTitle = material.course_material_group.Group_Title || "Download Materials"
+
+    if (Array.isArray(groups[groupTitle])) {
+      groups[groupTitle || "Download Materials"].push(material)
     } else {
-      groups[material.course_material_group.Group_Title] = [material]
+      groups[groupTitle] = [material]
     }
   })
 
