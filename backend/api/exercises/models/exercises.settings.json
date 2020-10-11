@@ -49,6 +49,9 @@
     "Summary": {
       "type": "text",
       "required": true
+    },
+    "Exercise_Content": {
+      "type": "richtext"
     }
   }
 }
