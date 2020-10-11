@@ -32,8 +32,7 @@ const ExercisesPage = ({
                 variant: `texture.${textureType}`,
                 borderColor: "text",
                 px: 3,
-                pt: 3,
-                pb: 1,
+                pt:1,
                 borderRadius: 2,
                 boxShadow: "0 0 2px rgba(0, 0, 0, 0.125)",
               }}
@@ -41,7 +40,7 @@ const ExercisesPage = ({
               <Flex sx={{ flexDirection: "column" }}>
                 <H2
                   onClick={() => navigateTo(exercise.Slug)}
-                  sx={{ color: "link", cursor: "pointer", display: "inline", width: "fit-content" }}
+                  sx={{ cursor: "pointer", display: "inline", width: "fit-content", mt:3 }}
                 >
                   {exercise.Title}
                 </H2>
