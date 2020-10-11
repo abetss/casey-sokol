@@ -6,6 +6,7 @@ import PageLayout from "../components/page-layout"
 import SEO from "../components/seo"
 import { Tag, H3, HighlightContainer, Link, PageTitle } from "../components"
 import { DynamicZones } from "../components/dynamic-zones"
+import { RichText } from "../components/rich-text"
 
 const CourseMaterial = ({ materials }) => {
   const groups = {}
@@ -61,7 +62,6 @@ const RelatedExercises = ({ exercises, title }) => {
 }
 
 const ExerciseTemplate = ({ data: { exercise } }) => {
-  console.log('^^^ boo', exercise.Course_Downloadable_Materials);
   return (
     <PageLayout>
       <SEO title={exercise.Title} />
@@ -95,6 +95,10 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
           </Flex>
         )}
 
+        <Box sx={{ mt: 3 }}>
+          <RichText>{exercise.Exercise_Content}</RichText>
+        </Box>
+
         <DynamicZones contents={exercise.Contents} />
       </Container>
     </PageLayout>
@@ -115,6 +119,7 @@ export const query = graphql`
         Title
         Summary
       }
+      Exercise_Content
       Contents {
         ComponentType
         Rich_Text
