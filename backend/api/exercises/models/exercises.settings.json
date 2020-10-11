@@ -33,15 +33,6 @@
       "collection": "exercises",
       "via": "exercises_related_to_this"
     },
-    "Contents": {
-      "type": "dynamiczone",
-      "components": [
-        "contents.musical-notation",
-        "contents.rich-text-center-aligned",
-        "contents.rich-text",
-        "contents.video"
-      ]
-    },
     "Slug": {
       "type": "uid",
       "targetField": "Title"

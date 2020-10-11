@@ -95,11 +95,10 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
           </Flex>
         )}
 
-        <Box sx={{ mt: 3 }}>
+        <Box sx={{ mt: 5 }}>
           <RichText>{exercise.Exercise_Content}</RichText>
         </Box>
 
-        <DynamicZones contents={exercise.Contents} />
       </Container>
     </PageLayout>
   )
@@ -120,28 +119,6 @@ export const query = graphql`
         Summary
       }
       Exercise_Content
-      Contents {
-        ComponentType
-        Rich_Text
-        Title
-        Video_ID
-        Provider
-        Download_Link_Title
-        Download_File {
-          mime
-          ext
-          hash
-          url
-        }
-        Notation_Image {
-          id
-          childImageSharp {
-            fluid(maxWidth: 890, quality: 100) {
-                  ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
       Course_Downloadable_Materials {
         Display_Name
         course_material_group {
