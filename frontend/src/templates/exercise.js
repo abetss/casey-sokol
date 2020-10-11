@@ -95,7 +95,7 @@ const ExerciseTemplate = ({ data: { exercise } }) => {
           </Flex>
         )}
 
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{ mt: "38px" }}>
           <RichText>{exercise.Exercise_Content}</RichText>
         </Box>
 
